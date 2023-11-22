@@ -33,61 +33,63 @@ struct ContentView: View {
                                     
                                 Text("What are you looking for?")
                                 
-                                    .font(.headline)       .foregroundColor(.gray)
+                                    .font(.headline)
+                                    .foregroundColor(.gray)
                             }
                                         .padding()
-                                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.white))          .border(Color.gray)
-                            .accessibility(label: Text("Search"))}
-                                .offset(y: -180)
+                                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.white))          
+                                        .border(Color.gray)
+                                        .accessibility(label: Text("Search"))}
+                                        .offset(y: -180)
 
                         HStack(spacing: 20) {
                             Spacer()
 
-                            Button(action: {
+                        Button(action: {
                                 // Azioni per il pulsante Breakfast
                             }) {
                                 VStack {
                                     Image(systemName: "sun.max.fill")
-                                        .font(.system(size: 40))
+                                        .font(.system(size: 30))
                                     Text("Breakfast")
-                                        .font(.headline)
+                                        
                                 }
                             }
-                            .foregroundColor(.gray)
-                            .offset(x: -20, y: -150)
-                            .accessibility(label: Text("Breakfast"))
+                                        .foregroundColor(.gray)
+                                        .offset(x: -20, y: -150)
+                                        .accessibility(label: Text("Breakfast"))
 
                             Spacer()
 
-                            Button(action: {
+                        Button(action: {
                                 // Azioni per il pulsante Lunch
                             }) {
                                 VStack {
                                     Image(systemName: "fork.knife")
-                                        .font(.system(size: 40))
+                                        .font(.system(size: 30))
                                     Text("Lunch")
-                                        .font(.headline)
+               
                                 }
                             }
-                            .foregroundColor(.gray)
-                            .offset(x: -10, y: -150)
-                            .accessibility(label: Text("Lunch"))
+                                        .foregroundColor(.gray)
+                                        .offset(x: -10, y: -150)
+                                        .accessibility(label: Text("Lunch"))
 
                             Spacer()
 
-                            Button(action: {
+                        Button(action: {
                                 // Azioni per il pulsante Dinner
                             }) {
                                 VStack {
                                     Image(systemName: "moon.fill")
-                                        .font(.system(size: 40))
+                                        .font(.system(size: 30))
                                     Text("Dinner")
-                                        .font(.headline)
+               
                                 }
                             }
-                            .foregroundColor(.gray)
-                            .offset(x: 15, y: -150)
-                            .accessibility(label: Text("Dinner"))
+                                        .foregroundColor(.gray)
+                                        .offset(x: 15, y: -150)
+                                        .accessibility(label: Text("Dinner"))
 
                             Spacer()
                         }
@@ -102,14 +104,15 @@ struct ContentView: View {
                         }) {
                             VStack {
                                 Image(systemName: "mug.fill")
-                                    .font(.system(size: 40))
+                                    .font(.system(size: 30))
                                 Text("Coffea & Tea")
-                                    .font(.headline)
+               
                             }
                         }
-                        .foregroundColor(.gray)
-                        .offset(x: -10, y: -90)
-                        .accessibility(label: Text("Coffee and Tea"))
+                                    .foregroundColor(.gray)
+                                    .offset(x: -10, y: -90)
+                                    .accessibility(label: Text("Coffee and Tea"))
+                                    .fixedSize(horizontal: false, vertical: true)
 
                         Spacer()
 
@@ -118,14 +121,14 @@ struct ContentView: View {
                         }) {
                             VStack {
                                 Image(systemName: "star.fill")
-                                    .font(.system(size: 40))
+                                    .font(.system(size: 30))
                                 Text("Nightlife")
-                                    .font(.headline)
+               
                             }
                         }
-                        .foregroundColor(.gray)
-                        .offset(x: 10, y: -90)
-                        .accessibility(label: Text("Nightlife"))
+                                    .foregroundColor(.gray)
+                                    .offset(x: 2, y: -90)
+                                    .accessibility(label: Text("Nightlife"))
 
                         Spacer()
 
@@ -134,14 +137,14 @@ struct ContentView: View {
                         }) {
                             VStack {
                                 Image(systemName: "bag.fill")
-                                    .font(.system(size: 40))
+                                    .font(.system(size: 30))
                                 Text("Things to do")
-                                    .font(.headline)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
-                        .foregroundColor(.gray)
-                        .offset(x: 15, y: -90)
-                        .accessibility(label: Text("Things to do"))
+                                    .foregroundColor(.gray)
+                                    .offset(x: 15, y: -90)
+                                    .accessibility(label: Text("Things to do"))
 
                         Spacer()
                     }
@@ -185,7 +188,9 @@ struct AnotherView: View {
     @State private var isMapButtonTapped = false
     
     var body: some View {
+        
         ZStack {
+                
             
             TabView(selection: $selectedTab) {
                 ForEach(0..<4) { index in
@@ -236,20 +241,19 @@ struct AnotherView: View {
                             .offset(x: 25, y: -60)
                         }
                         
-                        
                         .padding()
                         
-                        
-                        Button(action: {
+               Button(action: {
                             // Azioni per il bottone con il simbolo della mappa
                         }) {
-                            Image(systemName: "map.fill")
-                            
-                                .foregroundColor(.white)
-                                .frame(width: 30, height: 30)
-                                .padding()
-                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue))
-                                .offset( y: -60)
+                            Button(action: {
+                
+                            }) {          Image(systemName: "map.fill")
+                                    .resizable()
+                                           .scaledToFit()
+                                           .frame(width: 30, height: 30)
+                                           .foregroundColor(.white)          .padding()
+                           }              .offset( x:5, y: -60)
                         }
                         
                     }
@@ -371,3 +375,9 @@ struct AnotherView: View {
                 }
             }
         
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
